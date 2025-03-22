@@ -22,3 +22,11 @@ if you run it with the --appimage-extract option.
 See https://github.com/AppImage/AppImageKit/wiki/FUSE 
 for more information
 open dir error: No such file or directory
+fusermount: mount failed: Operation not permitted
+
+Cannot mount AppImage, please check your FUSE setup.
+You might still be able to extract the contents of this AppImage 
+if you run it with the --appimage-extract option. 
+See https://github.com/AppImage/AppImageKit/wiki/FUSE 
+for more information
+open dir error: No such file or directory
