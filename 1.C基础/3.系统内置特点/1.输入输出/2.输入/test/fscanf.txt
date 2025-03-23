@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    int a;
+    scanf("%d", &a);
+    printf("%d\n", a);
+
+    char* str = (char*)malloc(100 * sizeof(char));
+    if (str == NULL) {
+        printf("momery allocated failed!\n");
+        return 1;
+    }
+
+    scanf("%99s", str);
+    printf("%s\n", str);
+
+    char s2;
+    sscanf(str, "%c", &s2);
+    printf("The char read is %c\n", s2);
+
+    free(str);
+
+    return 0;
+}
