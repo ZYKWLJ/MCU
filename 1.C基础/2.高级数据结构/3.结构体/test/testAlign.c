@@ -3,9 +3,6 @@ struct Example4//供16位大小
 {
     char a;//1+3(对齐填充的)
     int b;//4
-    int d;//4
-    int e;//4
-    int f;//4
     double c;//8
 };
 # pragma pack(push,2)//设置2字节对齐
