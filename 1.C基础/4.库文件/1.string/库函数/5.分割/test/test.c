@@ -7,7 +7,7 @@ int main()
     char *ptr = strtok(chars, " ");//返回当前的指针,一旦找到分隔符，就把它替换成字符串结束符 '\0'。
     while (ptr)
     {
-        printf("%s\n", ptr);
+        printf("curStr=%s\tcreLen=%d\n", ptr,strlen(ptr));
         ptr= strtok(NULL, " ");//设置NULL，以便于从上次分割的位置继续处理！
     }
     printf("\n\nchars==%s\n\n",chars);//输出page.原字符串已被更改
