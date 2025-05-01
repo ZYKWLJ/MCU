@@ -4,6 +4,7 @@
         "stdio.h": "c",
         "string.h": "c",
         "cstring": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "unistd.h": "c"
     }
 }
