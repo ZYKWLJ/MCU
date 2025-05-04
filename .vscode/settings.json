@@ -5,6 +5,8 @@
         "string.h": "c",
         "cstring": "c",
         "stdlib.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "ratio": "c",
+        "memory_resource": "c"
     }
 }
