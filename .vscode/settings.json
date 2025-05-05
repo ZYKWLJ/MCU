@@ -8,6 +8,7 @@
         "unistd.h": "c",
         "ratio": "c",
         "memory_resource": "c",
-        "cstdio": "c"
+        "cstdio": "c",
+        "functional": "c"
     }
 }
