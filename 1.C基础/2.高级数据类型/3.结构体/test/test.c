@@ -13,12 +13,13 @@ struct person_
     char *hobby[20]; /*这是一个数组，而非指针*/
 };
 
-struct person_ person;
-
+struct person_ person1;
+#endif
 /*
 其中，person_是结构体标签，要求和struct一起用，表明这是一个结构体类型，例如声明一个变量：struct person_ p
 后面的person是一个结构体实例，这是一种简便写法。
 */
+#if 0
 
 /**写法2
  * data descp: 简洁写法1-变量紧贴类型后
@@ -29,10 +30,11 @@ struct person_
     char name[20];
     int age;
     char *hobby[20]; /*这是一个数组，而非指针*/
-} person;            /*这是一个变量，类型是struct person_
+} person2;           /*这是一个变量，类型是struct person_
                       */
 /*可以看到，这样写，就省略了在单独来一次struct person_ person，方便了一些*/
-
+#endif
+#if 0
 /**写法3
  * data descp: 简洁写法2-变量紧贴类型后，并初始化
  */
@@ -41,34 +43,32 @@ struct person_
     char name[20];
     int age;
     char *hobby[20]; /*这是一个数组，而非指针*/
-} person =
+} person3 =
     {
         "EthanYankang",
         100,
         {"run", "cycle", "code", NULL},
 };
 #endif
+
 /*当然了，你也可以混着写，如下*/
 struct person_
 {
     char name[20];
     int age;
     char *hobby[20]; /*这是一个数组，而非指针*/
-} person =
+} person4 =
     {
         "EthanYankang",
         100,
         {"run", "cycle", "code"},
 },
-  person1, *person2,
-  person3 = {
+  person5, *person6,
+  person7 = {
       .age = 23,
       .name = "Alice",
-      .hobby = {"writting", "take photos"}
-},person4[3]={
-    {.age=1,.name="A",.hobby={"h1","h2"}},
-    {.age=2,.name="B",.hobby={"h3","h4"}},
-    {.age=3,.name="C",.hobby={"h5","h6"}}};
+      .hobby = {"writting", "take photos"}},
+  person8[3] = {{.age = 1, .name = "A", .hobby = {"h1", "h2"}}, {.age = 2, .name = "B", .hobby = {"h3", "h4"}}, {.age = 3, .name = "C", .hobby = {"h5", "h6"}}};
 
 #if 0
 
@@ -89,14 +89,13 @@ struct person_
 // } *P_person;
 // P_person person;
 
-
 typedef struct person_
 {
     char name[20];
     int age;
     char *hobby[20]; /*这是一个数组，而非指针*/
 } P_person;
-P_person person;
+P_person person9;
 #endif
 
 void print(struct person_ person)
@@ -110,9 +109,11 @@ void print(struct person_ person)
     }
     printf("\n");
 }
+
 int main()
 {
-#if 1
+#if 0
+{
     person1.age = 100;
     sprintf(person1.name, "%s", "EthanYankang");
     for (int i = 0; i < 20; i++)
@@ -123,41 +124,43 @@ int main()
     }
     // person1.hobby=
     /**
-     * data descp: 这里一定要为person2分配内存，因为指针没有指向的内容，是野指针。！(那为什么char*arr="NULL"可以呢？因为这是指向的rodate段里面的数据地址！)
+     * data descp: 这里一定要为person2分配内存，因为指针没有指向的内容，是野指针。！
+     * (那为什么char*arr="NULL"可以呢？因为这是指向的rodate段里面的数据地址("NULL"编译器会为字面量默认分配内存)！)
      */
-    person2 = (struct person_ *)malloc(sizeof(struct person_));
-    person2->age = 20;
-    sprintf(person2->name, "%s", "NIUMA");
-    // person2->hobby = {"A", "B", "C"}; /*数组除了初始化之外，不可以直接赋值！只能采用元素遍历的方式！这个你又别忘记了！*/
-    person2->hobby[0] = "NIUMA";
-    // person2->name = strdup("NIUMA");
+}
+#endif
+#if 1
+    person6 = (struct person_ *)malloc(sizeof(struct person_));
+    person6->age = 20;
+    sprintf(person6->name, "%s", "NIUMA");
+    // person6->hobby = {"A", "B", "C"}; /*数组除了初始化之外，不可以直接赋值！只能采用元素遍历的方式！这个你又别忘记了！*/
+    person6->hobby[0] = "xidian";
+    person6->hobby[1] = "985";
+    // person6->name = strdup("NIUMA");//为什么这里使用strdup不行？因为strdup是在堆上分配内存的，针对数组，但是这里的name是字符数组，不能通过strdup来分配内存！也不能通过直接=赋值，只能通过覆写的方式来完成。
 
 #endif
-    print(person);
-    print(person1);
-    print(*person2);
+    // print(person1);
+    print(*person6);
 
-struct
-{
-    int price;
-    char *name;
-} phone = {
-    8000,
-    "HUAWEI",
-},p={
-    .price=3000,
-    .name="XIAOMI"
-};
-    printf("price:%s,name:%s\n", phone.name, phone.name);
+    struct
+    {
+        int price;
+        char *name;
+    } phone = {
+        8000,
+        "HUAWEI",
+    },
+      p = {.price = 3000, .name = "XIAOMI"};
+    printf("price:%d,name:%s\n", phone.price, phone.name);
+    printf("price:%d,name:%s\n", p.price, p.name);
 
     struct person_ person;
     person.age = 12;
     sprintf(person.name, "%s", "Alice");
-    sprintf(person.hobby[0], "eating");
-    sprintf(person.hobby[1], "running");
+    person.hobby[0] = "eating";
+    person.hobby[1] = "running";
+
     struct person_ person1 = {.age = 12, .name = "Alice", .hobby = {"eating", "running"}};
-
-    // person = {12, "Alice", {"eating", "running"}};
-    // person={.age=}
-
+    print(person);
+    print(person1);
 }
