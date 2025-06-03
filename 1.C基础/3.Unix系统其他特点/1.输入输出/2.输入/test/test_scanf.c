@@ -14,10 +14,12 @@ int main(){
 
     printf("\ntest sscanf\n");
     char*s1="hello";
-    char s2;
-    sscanf(s1,"%c",&s2);
-    printf("The char read is %c\n",s2);
-
+    char *s2=malloc(sizeof(char)*10);
+    sscanf(s1,"%s",&s2);
+    printf("The str read is %c\n",s2);
+    char s3;
+    sscanf(s1,"%c",&s3);
+    printf("The char read is %c\n",s3);
 
     printf("\ntest fscanf\n");
     FILE*fp=fopen("fscanf.txt","r");//打开文件
