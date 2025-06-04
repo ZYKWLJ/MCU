@@ -4,6 +4,7 @@
         "stdio.h": "c",
         "string.h": "c",
         "cstring": "c",
+<<<<<<< HEAD
         "stdlib.h": "c"
     },
     // "files.encoding": "gbk",
@@ -26,4 +27,13 @@
     //     // }
     // },
     // "terminal.integrated.defaultProfile.windows": "Command Prompt"
+=======
+        "stdlib.h": "c",
+        "unistd.h": "c",
+        "ratio": "c",
+        "memory_resource": "c",
+        "cstdio": "c",
+        "functional": "c"
+    }
+>>>>>>> b4c55e9695ca3e2c670d0d6f31a8ad4c78db4bb7
 }
